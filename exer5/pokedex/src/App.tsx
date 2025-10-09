@@ -100,6 +100,7 @@ This function fetches the JSON for the specified pokemon and returns it.
         fetchPokemonInfo()
     }, [pokeId])
 
+    useEffect(() => {}, [])
     return (
         <>
             <div className="w-full">
