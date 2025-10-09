@@ -21,7 +21,7 @@ const PokeInfoViewer = ({ title, values }: PokeInfoViewerProps) => {
         <>
             <div>
                 <h3 className="mt-2 font-bold">{title}</h3>
-                <div className="mt-2 min-w-64 min-h-72 h-3/4 w-full bg-[#D3D3D3]">
+                <div className="mt-2 min-w-64 min-h-72 h-100 overflow-auto w-full bg-[#D3D3D3]">
                     {title === 'Moves'
                         ? values.map((v, i) => {
                               return (
