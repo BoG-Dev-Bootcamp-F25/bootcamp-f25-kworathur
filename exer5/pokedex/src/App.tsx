@@ -44,6 +44,7 @@ This function fetches the JSON for the specified pokemon and returns it.
             const pokemonJSON = await response.json()
 
             // destructure the desired properties of pokemon object
+<<<<<<< HEAD
             let {
                 name,
                 height,
@@ -75,6 +76,11 @@ This function fetches the JSON for the specified pokemon and returns it.
                 units: 'm',
             })
             setErrorMsg('')
+=======
+            const { name, sprites, types, moves, stats } = pokemonJSON
+            const spriteUrl = sprites.front_shiny
+
+>>>>>>> 4e142c7 (feat: complete exercise 5)
             return { name, spriteUrl, types, moves, stats }
         } catch (e) {
             setErrorMsg((e as Error).message)
@@ -86,6 +92,10 @@ This function fetches the JSON for the specified pokemon and returns it.
         const fetchPokemonInfo = async () => {
             const pokeInfo = await getPokemonJSON(pokeId)
             if (pokeInfo == null) {
+<<<<<<< HEAD
+=======
+                alert(errorMsg)
+>>>>>>> 4e142c7 (feat: complete exercise 5)
                 setPokeInfo({
                     name: '',
                     spriteUrl: '',
@@ -100,7 +110,6 @@ This function fetches the JSON for the specified pokemon and returns it.
         fetchPokemonInfo()
     }, [pokeId])
 
-    useEffect(() => {}, [])
     return (
         <>
             <div className="w-full">
@@ -108,11 +117,15 @@ This function fetches the JSON for the specified pokemon and returns it.
                 {errorMsg && <span className="text-red-300">{errorMsg}</span>}
                 <div className="flex flex-row  max-h-4/5 mt-8 ">
                     <div className="flex-1">
+<<<<<<< HEAD
                         <PokeSpriteViewer
                             dataUrl={
                                 pokeInfo.spriteUrl ? pokeInfo.spriteUrl : null
                             }
                         />
+=======
+                        <PokeSpriteViewer dataUrl={pokeInfo.spriteUrl} />
+>>>>>>> 4e142c7 (feat: complete exercise 5)
                         <PokeNameInput name={pokeInfo.name} />
                         <PokeTypesTags types={pokeInfo.types} />
                         <PokeControls
