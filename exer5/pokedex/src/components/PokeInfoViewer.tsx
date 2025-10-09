@@ -9,6 +9,7 @@ export type PokeType = {
 export type PokeStat = {
     stat: { name: string }
     base_stat?: number
+    units?: string
 }
 
 type PokeInfoViewerProps = {
@@ -32,7 +33,10 @@ const PokeInfoViewer = ({ title, values }: PokeInfoViewerProps) => {
                               return (
                                   <div key={i}>
                                       {(v as PokeStat).stat.name}{' '}
-                                      {(v as PokeStat).base_stat}
+                                      {(v as PokeStat).base_stat}{' '}
+                                      {(v as PokeStat).units
+                                          ? (v as PokeStat).units
+                                          : ''}
                                   </div>
                               )
                           })}

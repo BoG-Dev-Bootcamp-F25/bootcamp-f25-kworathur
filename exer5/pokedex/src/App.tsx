@@ -19,7 +19,7 @@ type PokeInfo = {
     stats: PokeStat[]
 }
 
-const URL = 'https://pokeapi.co/api/v2/pokemon' //Put the url for the endpoint into a variable for readability and convenience :)
+const URL = 'https://pokeapi.co/api/v2/pokemon'
 
 function App() {
     const [selectedStat, setSelectedStat] = useState<'Moves' | 'Info'>('Moves')
@@ -44,9 +44,37 @@ This function fetches the JSON for the specified pokemon and returns it.
             const pokemonJSON = await response.json()
 
             // destructure the desired properties of pokemon object
-            const { name, sprites, types, moves, stats } = pokemonJSON
+            let {
+                name,
+                height,
+                weight,
+                sprites,
+                types,
+                moves,
+                stats,
+            }: {
+                name: string
+                sprites: any
+                height: number
+                weight: number
+                types: PokeType[]
+                moves: PokeMove[]
+                stats: PokeStat[]
+            } = pokemonJSON
             const spriteUrl = sprites.front_shiny
-
+            stats.splice(0, 0, {
+                stat: {
+                    name: 'weight',
+                },
+                base_stat: weight,
+                units: 'kg',
+            })
+            stats.splice(0, 0, {
+                stat: { name: 'height' },
+                base_stat: height,
+                units: 'm',
+            })
+            setErrorMsg('')
             return { name, spriteUrl, types, moves, stats }
         } catch (e) {
             setErrorMsg((e as Error).message)
@@ -58,7 +86,6 @@ This function fetches the JSON for the specified pokemon and returns it.
         const fetchPokemonInfo = async () => {
             const pokeInfo = await getPokemonJSON(pokeId)
             if (pokeInfo == null) {
-                alert(errorMsg)
                 setPokeInfo({
                     name: '',
                     spriteUrl: '',
@@ -77,9 +104,14 @@ This function fetches the JSON for the specified pokemon and returns it.
         <>
             <div className="w-full">
                 <h1 className="font-semibold">Exercise 5 - Pokedex !</h1>
+                {errorMsg && <span className="text-red-300">{errorMsg}</span>}
                 <div className="flex flex-row  max-h-4/5 mt-8 ">
                     <div className="flex-1">
-                        <PokeSpriteViewer dataUrl={pokeInfo.spriteUrl} />
+                        <PokeSpriteViewer
+                            dataUrl={
+                                pokeInfo.spriteUrl ? pokeInfo.spriteUrl : null
+                            }
+                        />
                         <PokeNameInput name={pokeInfo.name} />
                         <PokeTypesTags types={pokeInfo.types} />
                         <PokeControls
