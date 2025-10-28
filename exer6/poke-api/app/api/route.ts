@@ -1,12 +1,3 @@
-
-
-type PokePaginatedResponse = {
-    ok: boolean;
-    body: BodyInit;
-    status: number;
-    results: Array<{name: string, url: string}>
-}
-
 export const GET = async (req: Request): Promise<Response> => {
 
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1&offset=${Math.floor(Math.random() * 10)}`)
@@ -16,7 +7,6 @@ export const GET = async (req: Request): Promise<Response> => {
 	}
 
     const rb = await res.json()
-
     const reqUrl = rb.results[0].url
 
     const res2 = await fetch(reqUrl)
