@@ -31,9 +31,15 @@ export const GET = async (req: NextRequest, { params }: { params: Promise<{ name
     const rb3 = await res3.json()
     let curr_evo = rb3.chain;
 
+    console.log('Current evolution ', curr_evo)
+
     while (curr_evo.species.name !== name) {
+        if (curr_evo.evolves_to.length == 0) { // pokemon is fully evolved
+            return new Response(JSON.stringify(curr_evo), { status: res.status, headers: { 'Content-Type': 'application/json' } });
+        }
         curr_evo = curr_evo.evolves_to[0]
     }
+    
 
-	return new Response(JSON.stringify(curr_evo), { status: res.status, headers: { 'Content-Type': 'application/json' } });
+	return new Response(JSON.stringify(curr_evo.evolves_to[0]), { status: res.status, headers: { 'Content-Type': 'application/json' } });
 };
