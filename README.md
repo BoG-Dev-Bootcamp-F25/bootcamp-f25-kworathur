@@ -6,6 +6,15 @@
 Please see the demo for exercise 5 at [this link](https://gtvault-my.sharepoint.com/:v:/g/personal/kworathur3_gatech_edu/Eehdl9NbfKRCkLmzKZrsRFIBFNgCOP94GQh8wb4_fYrQyg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=vaUq5r)
 
 
+=======
+## Exercise 6 Submission:
+
+Please see the demo for exercise 6 at [this link]()
+
+## Exercise 7 Submission:
+
+Please see the demo for exercise 7 at [this link]()
+
 ## Fall 25 Dev Bootcamp Exercises
 
 This repository contains all the exercises and resources needed for the Fall 2025 Dev Bootcamp.
