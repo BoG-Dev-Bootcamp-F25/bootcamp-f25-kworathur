@@ -16,6 +16,15 @@ Please see the demo for exercise 6 at [this link]()
 
 Please see the demo for exercise 7 at [this link](https://drive.google.com/file/d/1kIn15LEKByEKKyhGGpa33e4YY2E0y90_/view?usp=drive_link)
 
+=======
+## Exercise 6 Submission:
+
+Please see the demo for exercise 6 at [this link]()
+
+## Exercise 7 Submission:
+
+Please see the demo for exercise 7 at [this link]()
+
 ## Fall 25 Dev Bootcamp Exercises
 
 This repository contains all the exercises and resources needed for the Fall 2025 Dev Bootcamp.
