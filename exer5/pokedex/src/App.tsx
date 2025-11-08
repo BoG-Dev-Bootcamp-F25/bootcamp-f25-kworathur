@@ -61,6 +61,7 @@ This function fetches the JSON for the specified pokemon and returns it.
                 moves: PokeMove[]
                 stats: PokeStat[]
             } = pokemonJSON
+
             const spriteUrl = sprites.front_shiny
             stats.splice(0, 0, {
                 stat: {
@@ -75,6 +76,7 @@ This function fetches the JSON for the specified pokemon and returns it.
                 units: 'm',
             })
             setErrorMsg('')
+
             return { name, spriteUrl, types, moves, stats }
         } catch (e) {
             setErrorMsg((e as Error).message)
@@ -86,6 +88,8 @@ This function fetches the JSON for the specified pokemon and returns it.
         const fetchPokemonInfo = async () => {
             const pokeInfo = await getPokemonJSON(pokeId)
             if (pokeInfo == null) {
+
+                alert(errorMsg)
                 setPokeInfo({
                     name: '',
                     spriteUrl: '',
@@ -107,6 +111,7 @@ This function fetches the JSON for the specified pokemon and returns it.
                 {errorMsg && <span className="text-red-300">{errorMsg}</span>}
                 <div className="flex flex-row  max-h-4/5 mt-8 ">
                     <div className="flex-1">
+
                         <PokeSpriteViewer
                             dataUrl={
                                 pokeInfo.spriteUrl ? pokeInfo.spriteUrl : null
