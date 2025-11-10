@@ -1,5 +1,5 @@
 import mongoose, {
-    InferSchemaType,
+    
     Model,
     Schema,
     model,
