@@ -1,13 +1,6 @@
 import connectDB from '..';
 import { Ticket } from '../models/Ticket';
 
-interface TicketData {
-    fields: string;
-    lineColor: string;
-    station: string;
-    userID: string;
-}
-
 const deleteTicket = async (ticketID: string) => {
     try {
         await connectDB();

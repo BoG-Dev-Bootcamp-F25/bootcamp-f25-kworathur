@@ -3,21 +3,25 @@ import { Ticket } from "../models/Ticket";
 
 
 interface TicketData {
-    fields: string;
     lineColor: string;
     station: string;
-    userID: string;
+    user: string;
 }
 
-const createTicket = async (ticketData: TicketData): Promise<boolean> => {
+interface CreateTicketResponse {
+    data: TicketData & {id_: string}
+}
+
+const createTicket = async (ticketData: TicketData): Promise<CreateTicketResponse | null> => {
     try {
         const newTicket = new Ticket(ticketData);
         await connectDB();
         await newTicket.save()
-        return true;
+        const responseData: CreateTicketResponse = {data: {lineColor: newTicket.lineColor, station: newTicket.station, userID: newTicket.userID, id_: newTicket.id}}
+        return responseData
     } catch (err) {
         console.error(`[ERROR]: Error encountered while saving ticket ${err}`);
-        return false;
+        return null;
     }
 }
 
