@@ -5,8 +5,7 @@ import { Ticket } from '../models/Ticket';
 const updateTicketByUser = async (ticketId: ObjectId, newUserId: ObjectId) => {
     try {
         await connectDB();
-        const result = await Ticket.findById(ticketId)
-            .updateMany({ userId: newUserId })
+        const result = await Ticket.findByIdAndUpdate(ticketId, { user: newUserId })
             .exec();
         if (result.modifiedCount == 0) {
             console.error(`Could not find ticket with id ${ticketId}`);
