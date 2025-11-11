@@ -5,14 +5,14 @@ type TicketType = InferSchemaType<typeof Ticket.schema>;
 
 const readTicketsByUser = async (
     userId: string
-): Promise<Array<TicketType>> => {
+): Promise<Array<TicketType> | null> => {
     try {
         await connectDB();
         const tickets = await Ticket.find({ user: userId }).exec();
         return tickets;
     } catch (err) {
         console.error(`Error encountered when reading tickets for user ${userId} : ${err}`);
-        return [];
+        return null;
     }
 };
 
