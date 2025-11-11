@@ -10,7 +10,7 @@ Please see the demo for exercise 5 at [this link](https://drive.google.com/file/
 
 ## Exercise 6 Submission:
 
-Please see the demo for exercise 6 at [this link]()
+Please see the demo for exercise 6 at [this link](https://drive.google.com/file/d/16ij8FpDpyHHkHNWtutBwCoYRL3qF9R81/view?usp=drive_link)
 
 ## Exercise 7 Submission:
 
